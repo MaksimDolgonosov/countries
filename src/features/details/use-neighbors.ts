@@ -3,7 +3,7 @@ import { useEffect } from "react";
 import { loadNeighborsByBorder, selectNeighbors } from "./details-slice";
 import { useAppDispatch } from "../../store";
 
-export const useNeighbors = (borders = []) => {
+export const useNeighbors = (borders: string[] = []) => {
   const dispatch = useAppDispatch();
   const neighbors = useSelector(selectNeighbors);
 
