@@ -1,15 +1,14 @@
 import { useSelector } from "react-redux";
 import { selectSearch, setSearch } from "./controls-slice";
 import { useAppDispatch } from "../../store";
-import { ChangeEventHandler } from "react";
 
-type OnSearch = ChangeEventHandler<HTMLInputElement>;
+//type OnSearch = ChangeEventHandler<HTMLInputElement>;
 
-export const useSearch = (): [string, OnSearch] => {
+export const useSearch = (): [string, (e: React.ChangeEvent<HTMLInputElement>) => void] => {
   const dispatch = useAppDispatch();
   const search = useSelector(selectSearch);
 
-  const handleSearch: OnSearch = (e) => {
+  const handleSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
     dispatch(setSearch(e.target.value));
   };
 
